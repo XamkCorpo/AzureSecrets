@@ -69,7 +69,7 @@ namespace KeyVaultExample.Services
             {
                 var response = await _secretClient.GetSecretAsync(secretName);
                 var secret = new VaultSecret { Name = secretName, Value = response.Value.Value };
-                _secretsCache.AddOrUpdate(secretName, secret, (key, oldValue) => secret);
+                _secretsCache.AddOrUpdate(secretName, secret, (key, oldValue) => secret); 
                 return secret;
             }
             catch (Exception ex)
